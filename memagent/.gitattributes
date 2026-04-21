@@ -1,0 +1,4 @@
+# Exclude everything under dataset/ from `git archive` exports,
+# except the one helper script we need to ship with the code.
+dataset/**                              export-ignore
+dataset/json_to_rllm_format.py         -export-ignore
