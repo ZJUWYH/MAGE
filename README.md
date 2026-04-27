@@ -45,3 +45,12 @@ For detailed per-project setup (Docker, specific CUDA/torch versions, optional e
 - `memagent/` — training and testing of the shadow-memory judge. See `memagent/README.md`.
 - `agentdojo/` — further live-agent evaluation with the trained judge in the loop. See `agentdojo/ATTACK_DEFENSE.md` for the attack/defense commands used in the paper.
 - `rllm/` — minor extensions to the trainer for judge metrics and ASR/BU reporting. See `rllm/diff.md` for a summary of changes against the upstream `rllm` codebase.
+
+## Models & datasets
+
+Released on Hugging Face:
+
+- PI judge model: https://huggingface.co/HuntingQuasar/pi-model
+- STAC judge model: https://huggingface.co/HuntingQuasar/stac-model
+- PI dataset: https://huggingface.co/datasets/HuntingQuasar/pi-dataset
+- STAC dataset: https://huggingface.co/datasets/HuntingQuasar/stac-dataset
