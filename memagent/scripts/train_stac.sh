@@ -15,7 +15,7 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 lambda=0
 normalize_reward=True
 GAMMAS=(0.25)
-TAUS=(1.0)
+TAUS=(0.1)
 
 for gamma in "${GAMMAS[@]}"; do
     for tau in "${TAUS[@]}"; do
@@ -31,7 +31,7 @@ for gamma in "${GAMMAS[@]}"; do
 
         # Then, train the model
         python3 -m core.train \
-            data.train_batch_size=16 \
+            data.train_batch_size=32 \
             data.max_prompt_length=8192 \
             data.max_response_length=8192 \
             actor_rollout_ref.model.path=Qwen/Qwen3-4B-Instruct-2507 \
@@ -40,7 +40,7 @@ for gamma in "${GAMMAS[@]}"; do
             actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean \
             actor_rollout_ref.actor.use_dynamic_bsz=True \
             actor_rollout_ref.actor.ppo_max_token_len_per_gpu=32768 \
-            actor_rollout_ref.actor.ppo_mini_batch_size=16 \
+            actor_rollout_ref.actor.ppo_mini_batch_size=32 \
             actor_rollout_ref.actor.use_kl_loss=False \
             actor_rollout_ref.actor.kl_loss_coef=0.001 \
             actor_rollout_ref.actor.kl_loss_type=low_var_kl \
@@ -80,10 +80,10 @@ for gamma in "${GAMMAS[@]}"; do
             trainer.default_local_dir=$CKPT_DIR \
             trainer.n_gpus_per_node=4 \
             trainer.nnodes=1 \
-            trainer.save_freq=50 \
+            trainer.save_freq=20 \
             trainer.test_freq=10 \
             trainer.default_hdfs_dir=null \
-            trainer.total_epochs=40 \
+            trainer.total_epochs=10 \
             rllm.workflow.use_workflow=True \
             +workflow.use_memory_reward=True \
             +workflow.gamma_mem=${gamma} \
