@@ -1,8 +1,8 @@
-# MAGE: Safeguarding LLM Agents against Long-Horizon Threats via Shadow Memory
+# ShadowMem: Safeguarding LLM Agents against Long-Horizon Threats via Shadow Memory
 
-This repository contains the official code release for the paper *MAGE: Safeguarding LLM Agents against Long-Horizon Threats via Shadow Memory*. **MAGE** (**M**emory **A**s **G**uardrail **E**nforcement) is a defensive framework that maintains a dedicated, safety-focused agentic memory — inspired by the *shadow stack* abstraction in systems security — to distill and retain safety-critical context across an agent's full execution trajectory, and uses this shadow memory to proactively assess pending actions before they are executed.
+This repository contains the official code release for the paper *Safeguarding LLM Agents against Long-Horizon Threats via Shadow Memory*. **ShadowMem** is a defensive framework that maintains a dedicated, safety-focused agentic memory — inspired by the *shadow stack* abstraction in systems security — to distill and retain safety-critical context across an agent's full execution trajectory, and uses this shadow memory to proactively assess pending actions before they are executed.
 
-![MAGE overview](assets/mage.png)
+![ShadowMem overview](assets/mage.png)
 
 ## Repository layout
 
@@ -54,3 +54,21 @@ Released on Hugging Face:
 - STAC judge model: https://huggingface.co/HuntingQuasar/stac-model
 - PI dataset: https://huggingface.co/datasets/HuntingQuasar/pi-dataset
 - STAC dataset: https://huggingface.co/datasets/HuntingQuasar/stac-dataset
+
+
+## Citation
+
+If you use ShadowMem in your research, please cite:
+
+```bibtex
+@inproceedings{wang2026shadowmem,
+  author    = {Yuhui Wang and Tanqiu Jiang and Jiacheng Liang and Charles Fleming and Ting Wang},
+  title     = {Safeguarding {LLM} Agents against Long-Horizon Threats via Shadow Memory},
+  booktitle = {Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security},
+  series    = {CCS '26},
+  year      = {2026},
+  publisher = {Association for Computing Machinery},
+  doi       = {10.1145/3830454.3846601},
+  url       = {https://doi.org/10.1145/3830454.3846601}
+}
+```
